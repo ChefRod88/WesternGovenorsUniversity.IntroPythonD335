@@ -1,0 +1,40 @@
+Create a Python solution to the following task. Ensure that the solution produces output in exactly the same format shown in the sample(s) below, including capitalization and whitespace.
+
+Task:
+Create a solution that accepts an input identifying the name of a text file, for example, "WordTextFile1.txt". Each text file contains three rows with one word per row. Using the open() function and write() and read() methods, interact with the input text file to write a new sentence string composed of the three existing words to the end of the file contents on a new line. Output the new file contents.
+
+The solution output should be in the format
+
+word1
+word2
+word3 
+sentence
+Sample Input/Output:
+If the input is
+
+WordTextFile1.txt
+then the expected output is
+
+cat
+chases
+dog
+cat chases dog
+
+file_name = input()
+
+# Open the file in read and write mode
+with open(file_name, "r+") as file:
+    # Read three lines from the file (one word per line)
+    words = [file.readline().strip() for _ in range(3)]
+    
+    # Form a sentence by joining the three words with spaces
+    sentence = " ".join(words)
+    
+    # Move the cursor to the end and write the sentence on a new line
+    file.write(f"\n{sentence}")
+    
+    # Move the cursor back to the beginning to read the updated file
+    file.seek(0)
+    
+    # Output the entire file contents
+    print(file.read())
