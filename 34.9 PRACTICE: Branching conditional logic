@@ -1,0 +1,50 @@
+Create a Python solution to the following task. Ensure that the solution produces output in exactly the same format shown in the sample(s) below, including capitalization and whitespace.
+
+Task:
+Create a solution that accepts an integer input representing water temperature in degrees Fahrenheit. Output a description of the water state based on the following scale:
+
+If the temperature is below 33° F, the water is “Frozen”.
+If the water is between 33° F and 80° F (including 33), the water is “Cold”.
+If the water is between 80° F and 115° F (including 80), the water is "Warm".
+If the water is between 115° F and 211° (including 115) F, the water is “Hot".
+If the water is greater than or equal to 212° F, the water is “Boiling”.
+Additionally, output a safety comment only during the following circumstances:
+
+If the water is exactly 212° F, the safety comment is "Caution: Hot!"
+If the water temperature is less than 33° F, the safety comment is "Watch out for ice!"
+The solution output should be in the format
+
+water_state
+optional_safety_comment
+Sample Input/Output:
+If the input is
+
+118
+then the expected output is
+
+Hot
+
+# Accept an integer input representing water temperature
+temperature = int(input())
+
+# Determine the water state and safety comment
+if temperature < 33:
+    water_state = "Frozen"
+    safety_comment = "Watch out for ice!"
+elif 33 <= temperature <= 80:
+    water_state = "Cold"
+    safety_comment = ""
+elif 80 <= temperature <= 115:
+    water_state = "Warm"
+    safety_comment = ""
+elif 115 <= temperature <= 211:
+    water_state = "Hot"
+    safety_comment = ""
+else:  # temperature >= 212
+    water_state = "Boiling"
+    safety_comment = "Caution: Hot!"
+
+# Output the results
+print(water_state)
+if safety_comment:
+    print(safety_comment)
